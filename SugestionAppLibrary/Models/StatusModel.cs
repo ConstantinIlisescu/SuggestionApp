@@ -1,11 +1,11 @@
 ﻿namespace SuggestionAppLibrary.Models;
-public class CategoryModel
+public class StatusModel
 {
    [BsonId]
    [BsonRepresentation(BsonType.ObjectId)]
    public string Id { get; set; }
 
-   public string CategoryName { get; set; }
+   public string StatusName { get; set; }
 
-   public string CategoryDescription { get; set; }
+   public string StatusDescription { get; set; }
 }
