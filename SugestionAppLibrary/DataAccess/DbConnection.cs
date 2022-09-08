@@ -14,6 +14,7 @@ public class DbConnection
 	public string UserColectionName { get; private set; } = "users";
 	public string SuggestionCollectionName { get; private set; } = "suggestions";
 
+	public MongoClient Client { get; private set; }
 
 	public DbConnection(IConfiguration config)
 	{
