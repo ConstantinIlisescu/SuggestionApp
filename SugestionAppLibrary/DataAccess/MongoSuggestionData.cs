@@ -2,7 +2,7 @@
 using SuggestionAppLibrary.Models;
 
 namespace SuggestionAppLibrary.DataAccess;
-public class MongoSuggestionData
+public class MongoSuggestionData : ISuggestionData
 {
 	private readonly IDbConnection _db;
 	private readonly IUserData _userData;
