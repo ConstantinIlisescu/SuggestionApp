@@ -58,4 +58,10 @@ public class MongoSuggestionData
 			x.ApprovedForRelease == false &&
 			x.Rejected == false).ToList();
 	}
+
+	public async Task UpdateSuggestion(SuggestionModel suggestion)
+	{
+		await _suggestions.ReplaceOneAsync(s => s.Id == suggestion.Id, suggestion);
+		_cache.Remove(CacheName);
+	}
 }
