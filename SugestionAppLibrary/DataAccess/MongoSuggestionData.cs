@@ -18,6 +18,11 @@ public class MongoSuggestionData
 		_userData = userData;
 		_cache = cache;
 		_suggestions = db.SuggestionCollection;
+	}
 
+	public async Task<List<SuggestionModel>> GetAllSuggestions()
+	{
+		var output = _cache.Get<List<SuggestionModel>>(CacheName);
+		return output;
 	}
 }
