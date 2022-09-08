@@ -50,5 +50,46 @@
         await categoryData.CreateCategory(cat);
     }
 
+    private async Task CreateStatuses()
+    {
+        var statuses = await statusData.GetAllStatuses();
 
+        if(statuses?.Count >0)
+        {
+            return;
+        }
+
+        StatusModel stat = new()
+        {
+            StatusName = "Completed",
+            StatusDescription = "The suggestion was accepted and the corresponding item was created."
+        };
+
+        await statusData.CreateStatus(stat);
+
+        stat = new()
+            {
+                StatusName = "Watching",
+                StatusDescription = "The suggestion is interesting. we are watching to see how much interes it attracts."
+            };
+
+        await statusData.CreateStatus(stat);
+
+        stat = new()
+            {
+                StatusName = "Upcoming",
+                StatusDescription = "The suggestion was accepted and it will be released soon."
+            };
+
+        await statusData.CreateStatus(stat);
+
+        stat = new()
+            {
+                StatusName = "Dismissed",
+                StatusDescription = "The suggestion was not something that we are going to undertake."
+            };
+
+        await statusData.CreateStatus(stat);
+
+    }
 }
