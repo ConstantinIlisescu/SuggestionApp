@@ -23,6 +23,12 @@ public class MongoSuggestionData
 	public async Task<List<SuggestionModel>> GetAllSuggestions()
 	{
 		var output = _cache.Get<List<SuggestionModel>>(CacheName);
+		if (output == null)
+		{
+			var results = await _suggestions.FindAsync(s => s.Archived == false);
+			output = results.ToList();
+			_cache.Set(CacheName, output, TimeSpan.FromMinutes(1));
+		}
 		return output;
 	}
 }
