@@ -10,4 +10,10 @@ public class MongoUserData
 		_users = db.UserCollection;
 	}
 
+	public async Task<List<UserModel>> GetUsersAsync()
+	{
+		var results = await _users.FindAsync(_ => true);
+		return results.ToList();
+	}
+
 }
