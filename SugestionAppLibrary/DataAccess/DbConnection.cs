@@ -25,6 +25,7 @@ public class DbConnection
 	{
 		_config = config;
 		Client = new MongoClient(_config.GetConnectionString(_conectionId));
+		DbName = _config[key: "DatabaseName"];
 
 	}
 }
