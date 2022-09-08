@@ -27,4 +27,9 @@ public class MongoUserData
 		var results = await _users.FindAsync(u => u.ObjectIdentifier == objectId);
 		return results.FirstOrDefault();
 	}
+
+	public Task CreateUser(UserModel user)
+	{
+		return _users.InsertOneAsync(user);
+	}
 }
