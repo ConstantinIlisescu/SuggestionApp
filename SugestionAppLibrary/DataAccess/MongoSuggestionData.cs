@@ -31,4 +31,10 @@ public class MongoSuggestionData
 		}
 		return output;
 	}
+
+	public async Task<List<SuggestionModel>> GetAllApprovedSuggestions()
+	{
+		var output = await GetAllApprovedSuggestions();
+		return output.Where(x => x.ApprovedForRelease).ToList();
+	}
 }
