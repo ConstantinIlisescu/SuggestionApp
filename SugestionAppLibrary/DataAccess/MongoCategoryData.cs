@@ -26,4 +26,9 @@ public class MongoCategoryData
       }
       return output;
    }
+
+   public Task CreateCategory(CategoryModel category)
+   {
+      return _categories.InsertOneAsync(category);
+   }
 }
