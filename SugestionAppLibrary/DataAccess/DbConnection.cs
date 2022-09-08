@@ -27,5 +27,10 @@ public class DbConnection
 		Client = new MongoClient(_config.GetConnectionString(_conectionId));
 		DbName = _config[key: "DatabaseName"];
 		_db = Client.GetDatabase(DbName);
+
+		CategoryCollection = _db.GetCollection<CategoryModel>(CategoryCollectionName);
+		StatusCollection = _db.GetCollection<StatusModel>(StatusCollectionName);
+		UserCollection = _db.GetCollection<UserModel>(UserColectionName);
+		SuggestionCollection = _db.GetCollection<SuggestionModel>(SuggestionCollectionName);
 	}
 }
