@@ -3,7 +3,7 @@ using MongoDB.Driver;
 using SuggestionAppLibrary.Models;
 
 namespace SuggestionAppLibrary.DataAccess;
-public class DbConnection
+public class DbConnection // hit < ctrl + . > to open th quick actions refactoring
 {
 
 	private readonly IConfiguration _config;
