@@ -32,4 +32,9 @@ public class MongoUserData
 	{
 		return _users.InsertOneAsync(user);
 	}
+
+	public Task UpdateUser(UserModel user)
+	{
+		var filter = Builders<UserModel>.Filter.Eq(field: "Id", user.Id);
+	}
 }
