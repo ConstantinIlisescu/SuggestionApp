@@ -36,5 +36,6 @@ public class MongoUserData
 	public Task UpdateUser(UserModel user)
 	{
 		var filter = Builders<UserModel>.Filter.Eq(field: "Id", user.Id);
+		return _users.ReplaceOneAsync(filter, user, options: new ReplaceOptions { IsUpsert = true });//{ IsUpsert = true } is creating an entry if the entri is not found, or update if entry is found
 	}
 }
