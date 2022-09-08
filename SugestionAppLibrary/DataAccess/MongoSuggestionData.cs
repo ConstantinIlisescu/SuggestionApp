@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Caching.Memory;
 
 namespace SuggestionAppLibrary.DataAccess;
-internal class MongoSuggestionData
+public class MongoSuggestionData
 {
+	public MongoSuggestionData(IDbConnection db, IUserData userData, IMemoryCache cache)
+	{
+
+	}
 }
