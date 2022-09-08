@@ -2,7 +2,7 @@
 using SuggestionAppLibrary.Models;
 
 namespace SuggestionAppLibrary.DataAccess;
-public class MongoStatusData
+public class MongoStatusData : IStatusData
 {
 	private readonly IMongoCollection<StatusModel> _statuses;
 	private readonly IMemoryCache _cache;
