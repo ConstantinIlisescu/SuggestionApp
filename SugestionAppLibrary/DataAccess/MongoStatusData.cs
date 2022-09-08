@@ -1,5 +1,18 @@
-﻿namespace SuggestionAppLibrary.DataAccess;
+﻿using Microsoft.Extensions.Caching.Memory;
+using SuggestionAppLibrary.Models;
+
+namespace SuggestionAppLibrary.DataAccess;
 public class MongoStatusData
 {
+	private readonly IMongoCollection<StatusModel> _statuses;
+	private readonly IMemoryCache _cache;
+	private const string cacheName = "StatusData";
 
+
+	public MongoStatusData(IDbConnection db, IMemoryCache cache)
+	{
+		_cache = cache;
+		_statuses = db.StatusCollection;
+	}
 }
+
