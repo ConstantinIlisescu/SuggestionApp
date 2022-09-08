@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using MongoDB.Driver;
 using SuggestionAppLibrary.Models;
 
 namespace SuggestionAppLibrary.DataAccess;
@@ -13,7 +12,7 @@ public class DbConnection : IDbConnection
 	public string DbName { get; private set; }
 	public string CategoryCollectionName { get; private set; } = "categories";
 	public string StatusCollectionName { get; private set; } = "statuses";
-	public string UserColectionName { get; private set; } = "users";
+	public string UserCollectionName { get; private set; } = "users";
 	public string SuggestionCollectionName { get; private set; } = "suggestions";
 
 	public MongoClient Client { get; private set; }
@@ -31,7 +30,7 @@ public class DbConnection : IDbConnection
 
 		CategoryCollection = _db.GetCollection<CategoryModel>(CategoryCollectionName);
 		StatusCollection = _db.GetCollection<StatusModel>(StatusCollectionName);
-		UserCollection = _db.GetCollection<UserModel>(UserColectionName);
+		UserCollection = _db.GetCollection<UserModel>(UserCollectionName);
 		SuggestionCollection = _db.GetCollection<SuggestionModel>(SuggestionCollectionName);
 	}
 }

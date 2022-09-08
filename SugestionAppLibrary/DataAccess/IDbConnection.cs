@@ -1,5 +1,4 @@
-﻿using MongoDB.Driver;
-using SuggestionAppLibrary.Models;
+﻿using SuggestionAppLibrary.Models;
 
 namespace SuggestionAppLibrary.DataAccess;
 public interface IDbConnection
@@ -12,6 +11,6 @@ public interface IDbConnection
    string StatusCollectionName { get; }
    IMongoCollection<SuggestionModel> SuggestionCollection { get; }
    string SuggestionCollectionName { get; }
-   string UserColectionName { get; }
+   string UserCollectionName { get; }
    IMongoCollection<UserModel> UserCollection { get; }
 }
