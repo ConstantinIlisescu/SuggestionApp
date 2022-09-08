@@ -4,11 +4,31 @@
 
 <h3>Sample Data</h3>
 
-<button class="btn btn-primary" @onclick="CreateCategories">Create Categories</button>
-<button class="btn btn-primary" @onclick="CreateStatuses">Create Statuses</button>
+@if(categoriesCreated)
+{
+    <h4>Categories have been created</h4>
+}else{
+    <button class="btn btn-primary" @onclick="CreateCategories">Create Categories</button>
+}
+
+
+@if (statusesCreated)
+{
+    <h4>Statuses have been created</h4>
+}
+else
+{
+    <button class="btn btn-primary" @onclick="CreateStatuses">Create Statuses</button>
+}
+
+
 
 
 @code {
+    private bool categoriesCreated = false;
+    private bool statusesCreated = false;
+
+
     private async Task CreateCategories()
     {
         var categories = await categoryData.GetAllCategories();
@@ -52,6 +72,8 @@
                 CategoryDescription = "Not sure what categori this fits in."
             };
         await categoryData.CreateCategory(cat);
+
+        categoriesCreated = true;
     }
 
     private async Task CreateStatuses()
@@ -95,5 +117,6 @@
 
         await statusData.CreateStatus(stat);
 
+        statusesCreated = true;
     }
 }
