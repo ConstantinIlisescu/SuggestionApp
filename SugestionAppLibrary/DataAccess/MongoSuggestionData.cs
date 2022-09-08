@@ -50,4 +50,12 @@ public class MongoSuggestionData
 		var results = await _suggestions.FindAsync(s => s.Id == id);
 		return results.FirstOrDefault();
 	}
+
+	public async Task<List<SuggestionModel>> GetAllSuggestionsWaitingForApproval()
+	{
+		var output = await GetAllSuggestions();
+		return output.Where(x =>
+			x.ApprovedForRelease == false &&
+			x.Rejected == false).ToList();
+	}
 }
