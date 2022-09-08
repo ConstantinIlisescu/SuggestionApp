@@ -5,5 +5,50 @@
 <h3>Sample Data</h3>
 
 @code {
+    private async Task CreateCategories()
+    {
+        var categories = await categoryData.GetAllCategories();
+
+        if(categories?.Count >0)
+        {
+            return;
+        }
+
+        CategoryModel cat = new()
+            {
+                CategoryName = "Courses",
+                CategoryDescription = "Full paid courses."
+            };
+        await categoryData.CreateCategory(cat);
+
+        cat = new()
+            {
+                CategoryName = "Dev Questions",
+                CategoryDescription = "Advice on being a developer."
+            };
+        await categoryData.CreateCategory(cat);
+
+        cat = new()
+            {
+                CategoryName = "In-Depth Tutorials",
+                CategoryDescription = "A deep-dive video on how to use a topic."
+            };
+        await categoryData.CreateCategory(cat);
+
+        cat = new()
+            {
+                CategoryName = "10-Minutes Training.",
+                CategoryDescription = "A quick \"How do I use this?\" video."
+            };
+        await categoryData.CreateCategory(cat);
+
+        cat = new()
+            {
+                CategoryName = "Other",
+                CategoryDescription = "Not sure what categori this fits in."
+            };
+        await categoryData.CreateCategory(cat);
+    }
+
 
 }
