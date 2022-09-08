@@ -44,5 +44,10 @@ public class MongoSuggestionData
 		return output.Where(x => x.ApprovedForRelease).ToList();
 	}
 
-
+	public async Task<SuggestionModel> GetSuggestion(string id)
+	{
+		//This method goes to the server and gets all the suggestions that matches the Id passed
+		var results = await _suggestions.FindAsync(s => s.Id == id);
+		return results.FirstOrDefault();
+	}
 }
