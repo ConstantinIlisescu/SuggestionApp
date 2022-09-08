@@ -28,5 +28,10 @@ public class MongoStatusData
 		return output;
 	}
 
+	public Task CreateStatus(StatusModel status)
+	{
+		return _statuses.InsertOneAsync(status);
+	}
+
 }
 
