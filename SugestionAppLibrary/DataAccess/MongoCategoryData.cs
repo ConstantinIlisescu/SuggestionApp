@@ -2,7 +2,7 @@
 using SuggestionAppLibrary.Models;
 
 namespace SuggestionAppLibrary.DataAccess;
-public class MongoCategoryData
+public class MongoCategoryData : ICategoryData
 {
    private readonly IMongoCollection<CategoryModel> _categories;
    private readonly IMemoryCache _cache;
