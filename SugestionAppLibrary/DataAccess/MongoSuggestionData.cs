@@ -22,11 +22,17 @@ public class MongoSuggestionData
 
 	public async Task<List<SuggestionModel>> GetAllSuggestions()
 	{
+
+		// saves whatever is in cache saved under variable CacheName
 		var output = _cache.Get<List<SuggestionModel>>(CacheName);
+		//checks the output
 		if (output == null)
 		{
+			//looks into teh database and get all the data dat is not archived
 			var results = await _suggestions.FindAsync(s => s.Archived == false);
+			//stores it as a list
 			output = results.ToList();
+			//caches it for 1 minute
 			_cache.Set(CacheName, output, TimeSpan.FromMinutes(1));
 		}
 		return output;
@@ -37,4 +43,6 @@ public class MongoSuggestionData
 		var output = await GetAllApprovedSuggestions();
 		return output.Where(x => x.ApprovedForRelease).ToList();
 	}
+
+
 }
