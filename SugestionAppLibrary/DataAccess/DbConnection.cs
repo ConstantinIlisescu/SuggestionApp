@@ -24,5 +24,7 @@ public class DbConnection
 	public DbConnection(IConfiguration config)
 	{
 		_config = config;
+		Client = new MongoClient(_config.GetConnectionString(_conectionId));
+
 	}
 }
