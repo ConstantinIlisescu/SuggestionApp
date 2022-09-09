@@ -109,4 +109,10 @@
         selectedCategory = category;
         await FilterSuggestions();
     }
+
+    private async Task OnStatusClick(string status = "All")
+    {
+        selectedStatus = status;
+        await FilterSuggestions();
+    }
 }
