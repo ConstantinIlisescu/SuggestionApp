@@ -22,4 +22,9 @@
         categories = await categoryData.GetAllCategories();
         statuses = await statusData.GetAllStatuses();
     }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+
+    }
 }
