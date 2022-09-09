@@ -103,4 +103,10 @@
         searchText = searchInput;
         await FilterSuggestions();
     }
+
+    private async Task OnCategoryClick(string category = "All")
+    {
+        selectedCategory = category;
+        await FilterSuggestions();
+    }
 }
