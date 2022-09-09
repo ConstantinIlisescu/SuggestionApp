@@ -78,5 +78,9 @@
             output = output.OrderByDescending(s => s.UserVotes.Count)
                                     .ThenByDescending(s => s.DateCreated).ToList();
         }
+
+        suggestions = output;
+
+        await SaveFilterState();
     }
 }
