@@ -47,6 +47,13 @@ else
         var categories = await categoryData.GetAllCategories();
         var statuses = await statusData.GetAllStatuses();
 
+        HashSet<string> votes = new();
+        votes.Add("1");
+        votes.Add("2");
+        votes.Add("3");
+
+
+
         SuggestionModel suggestion = new()
         {
             Author = new BasicUserModel(foundUser),
