@@ -56,5 +56,10 @@
         {
             output = output.Where(s => s.Category?.CategoryName == selectedCategory).ToList();
         }
+
+        if (selectedStatus != "All")
+        {
+            output = output.Where(s => s.SuggestionStatus?.StatusName == selectedStatus).ToList();
+        }
     }
 }
