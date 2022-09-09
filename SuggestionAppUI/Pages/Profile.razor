@@ -10,4 +10,10 @@
     private List<SuggestionModel> archived;
     private List<SuggestionModel> pending;
     private List<SuggestionModel> rejected;
+
+    protected async override Task OnInitializedAsync()
+    {
+        //ToDo - replace with user lookup
+        loggedInUser = await userData.GetUserFromAuthentication("abc-123");
+    }
 }
