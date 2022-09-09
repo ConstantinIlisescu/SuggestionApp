@@ -48,6 +48,11 @@
         isSortedByNew = boolResults.Success ? boolResults.Value : true;
     }
 
+    private async Task SaveFilterState()
+    {
+
+    }
+
     private async Task FilterSuggestions()
     {
         var output = await suggestionData.GetAllApprovedSuggestions();
