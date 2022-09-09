@@ -25,6 +25,11 @@
 
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
-
+        if(firstRender)
+        {
+            await LoadFilterState();
+            await FilterSuggestions();
+            StateHasChanged();
+        }
     }
 }
