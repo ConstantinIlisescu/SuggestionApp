@@ -61,5 +61,13 @@
         {
             output = output.Where(s => s.SuggestionStatus?.StatusName == selectedStatus).ToList();
         }
+
+        
+        if (string.IsNullOrWhiteSpace(searchText) == false)
+        {
+            output = output.Where(s => s.Suggestion.Contains(searchText, StringComparison.InvariantCultureIgnoreCase) ||
+                                                         s.Description.Contains(searchText, StringComparison.InvariantCultureIgnoreCase)
+                                                    ).ToList();
+        }
     }
 }
