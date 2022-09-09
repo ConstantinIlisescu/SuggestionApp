@@ -28,6 +28,17 @@ else
     private bool categoriesCreated = false;
     private bool statusesCreated = false;
 
+    private async Task GenerateSampleData()
+    {
+        UserModel user = new()
+            {
+                FirstName = "Coste",
+                LastName = "Ilisescu",
+                EmailAddress = "cos@cos.com",
+                DisplayName = "Sample Coste",
+                ObjectIdentifier = "abc-123"
+            };
+    }
 
     private async Task CreateCategories()
     {
