@@ -44,7 +44,8 @@ else
         await userData.CreateUser(user);
 
         var foundUser = await userData.GetUserFromAuthentication("abc-123");
-        
+        var categories = await categoryData.GetAllCategories();
+
     }
 
     private async Task CreateCategories()
