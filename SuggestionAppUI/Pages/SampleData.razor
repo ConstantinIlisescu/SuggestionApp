@@ -41,9 +41,10 @@ else
                 ObjectIdentifier = "abc-123"
             };
 
-            await userData.CreateUser(user);
+        await userData.CreateUser(user);
 
-           
+        var foundUser = await userData.GetUserFromAuthentication("abc-123");
+        
     }
 
     private async Task CreateCategories()
