@@ -138,4 +138,9 @@
             return "Upvote";
         }
     }
+
+    private void OpenDetails(SuggestionModel suggestion)
+    {
+        navManager.NavigateTo($"/Details/{suggestion.Id}");
+    }
 }
