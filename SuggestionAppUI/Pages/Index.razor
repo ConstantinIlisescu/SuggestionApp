@@ -16,4 +16,10 @@
     private string selectedStatus = "All";
     private string searchText = "";
     bool isSortedByNew = true;
+
+    protected async override Task OnInitializedAsync()
+    {
+        categories = await categoryData.GetAllCategories();
+        statuses = await statusData.GetAllStatuses();
+    }
 }
