@@ -50,6 +50,11 @@
 
     private async Task FilterSuggestions()
     {
+        var output = await suggestionData.GetAllApprovedSuggestions();
 
+        if (selectedCategory != "All")
+        {
+            output = output.Where(s => s.Category?.CategoryName == selectedCategory).ToList();
+        }
     }
 }
