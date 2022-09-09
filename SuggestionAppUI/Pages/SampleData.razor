@@ -1,6 +1,8 @@
 ﻿@page "/SampleData"
 @inject ICategoryData categoryData
 @inject IStatusData statusData
+@inject IUserData userData
+@inject ISuggestionData suggestionData
 
 <h3>Sample Data</h3>
 
@@ -38,6 +40,10 @@ else
                 DisplayName = "Sample Coste",
                 ObjectIdentifier = "abc-123"
             };
+
+            await userData.CreateUser(user);
+
+           
     }
 
     private async Task CreateCategories()
