@@ -7,6 +7,9 @@
 @inject NavigationManager navManager
 @inject ProtectedSessionStorage sessionStorage
 
+
+<h1>hi</h1>
+
 @code{
     private List<SuggestionModel> suggestions;
     private List<CategoryModel> categories;
@@ -75,7 +78,7 @@
         {
             output = output.Where(s => s.Suggestion.Contains(searchText, StringComparison.InvariantCultureIgnoreCase) ||
                                                          s.Description.Contains(searchText, StringComparison.InvariantCultureIgnoreCase)
-                                                    ).ToList();
+                                                        ).ToList();
         }
 
         if (isSortedByNew)

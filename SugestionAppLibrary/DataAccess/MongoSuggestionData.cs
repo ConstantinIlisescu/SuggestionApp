@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
-using SuggestionAppLibrary.Models;
 
 namespace SuggestionAppLibrary.DataAccess;
 public class MongoSuggestionData : ISuggestionData
@@ -8,7 +7,7 @@ public class MongoSuggestionData : ISuggestionData
 	private readonly IUserData _userData;
 	private readonly IMemoryCache _cache;
 	private readonly IMongoCollection<SuggestionModel> _suggestions;
-	private const string CacheName = "SuggestionName";
+	private const string CacheName = "SuggestionData";
 
 
 
@@ -54,7 +53,7 @@ public class MongoSuggestionData : ISuggestionData
 
 	public async Task<List<SuggestionModel>> GetAllApprovedSuggestions()
 	{
-		var output = await GetAllApprovedSuggestions();
+		var output = await GetAllSuggestions();
 		return output.Where(x => x.ApprovedForRelease).ToList();
 	}
 

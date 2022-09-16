@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
-using SuggestionAppLibrary.Models;
 
 namespace SuggestionAppLibrary.DataAccess;
 public class MongoCategoryData : ICategoryData

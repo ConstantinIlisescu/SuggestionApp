@@ -1,6 +1,4 @@
-﻿using SuggestionAppLibrary.DataAccess;
-
-namespace SuggestionAppUI;
+﻿namespace SuggestionAppUI;
 
 public static class RegisterServices
 {
