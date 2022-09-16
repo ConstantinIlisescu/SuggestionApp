@@ -27,6 +27,45 @@
     </div>
 </div>
 
+<div>
+    <div>
+        @if (suggestions is not null)
+        {
+            <Virtualize Items="@suggestions" Context="s" OverscanCount="10">
+                
+                <div>
+                    @*the left part of the suggestion card*@
+                    <div>
+                        <div>@GetUpvoteTopText(s)</div>
+                        <span class="oi oi-caret-top"></span>
+                        <div>@GetUpvoteBottomText(s)</div>
+                    </div>
+
+                    @*the midle part of the suggestion card*@
+                    <div>
+                        <div @onclick="(() => OpenDetails(s))">
+                            @s.Suggestion
+                        </div>
+                        <div>
+                            <div @onclick="(() => OpenDetails(s))">
+                                @s.Category?.CategoryName
+                            </div>
+                        </div>
+                    </div>
+
+                    @*the right part of the suggestion card*@
+                    <div>
+                        <div>
+                            @s.SuggestionStatus?.StatusName
+                        </div>
+                    </div>
+                </div>
+
+            </Virtualize>
+        }
+    </div>
+</div>
+
 
 
 
