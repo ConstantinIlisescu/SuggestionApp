@@ -16,4 +16,28 @@
     private void ClosePage(){
         navManager.NavigateTo("/");
     }
+
+    private string GetUpvoteTopText()
+    {
+        if (suggestion.UserVotes?.Count > 0)
+        {
+            return suggestion.UserVotes.Count.ToString("00");
+        }
+        else
+        {
+            return "Click to";
+        }
+    }
+
+    private string GetUpvoteBottomText()
+    {
+        if (suggestion.UserVotes?.Count > 1)
+        {
+            return "Upvotes";
+        }
+        else
+        {
+            return "Upvote";
+        }
+    }
 }
