@@ -20,6 +20,11 @@
         <button @onclick="(() => OrderByNew(true))">New</button>
         <button @onclick="(() => OrderByNew(false))">Popular</button>
     </div>
+    <div>
+        <input type="text" placeholder="Search" 
+            aria-label="Search box" 
+            @oninput="((txt) => OnSearchInput((string)txt.Value))"/>
+    </div>
 </div>
 
 
