@@ -38,6 +38,20 @@
     </div>
 </div>
 
+@if (suggestion?.SuggestionStatus is not null)
+{
+    <div>
+        <div>
+            <div></div>
+            <div>
+                <div>@suggestion.SuggestionStatus.StatusName</div>
+                @*this convert string into a link if there is any*@
+                <div>@((MarkupString)suggestion.OwnerNotes)</div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
     [Parameter]
     public string Id { get; set; }
