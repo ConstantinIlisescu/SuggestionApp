@@ -1,5 +1,5 @@
 ﻿@page "/Profile"
-@inject ISuggestionData suggestingData
+@inject ISuggestionData suggestionData
 @inject IUserData userData
 @inject NavigationManager navManager
 
@@ -15,5 +15,21 @@
     {
         //ToDo - replace with user lookup
         loggedInUser = await userData.GetUserFromAuthentication("abc-123");
+
+        var results = await suggestionData.GetUsersSuggestions(loggedInUser.Id);
+
+        if (loggedInUser is not null && results is not null)
+        {
+            submissions = results.OrderByDescending(s => s.DateCreated).ToList();
+            approved = submissions.Where(s => s.ApprovedForRelease && s.Archived == false & s.Rejected == false).ToList();
+            archived = submissions.Where(s => s.Archived && s.Rejected == false).ToList();
+            pending = submissions.Where(s => s.ApprovedForRelease == false && s.Rejected == false).ToList();
+            rejected = submissions.Where(s => s.Rejected).ToList();
+        }
+    }
+
+    private void ClosePage()
+    {
+        navManager.NavigateTo("/");
     }
 }
