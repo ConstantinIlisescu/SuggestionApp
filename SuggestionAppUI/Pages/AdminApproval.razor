@@ -17,6 +17,11 @@
         submissions = await suggestionData.GetAllSuggestionsWaitingForApproval();
     }
 
-
+    private async Task ApproveSubmission(SuggestionModel submission)
+    {
+        submission.ApprovedForRelease = true;
+        submissions.Remove(submission);
+        await suggestionData.UpdateSuggestion(submission);
+    }
 
 }
