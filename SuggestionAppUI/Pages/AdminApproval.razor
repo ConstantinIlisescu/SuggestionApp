@@ -31,4 +31,12 @@
         await suggestionData.UpdateSuggestion(submission);
     }
 
+    private void EditTitle(SuggestionModel model)
+    {
+        editingModel = model;
+        editedTitle = model.Suggestion;
+        currentEditingTitle = model.Id;
+        currentEditingDescription = "";
+    }
+
 }
