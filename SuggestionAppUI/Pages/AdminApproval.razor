@@ -12,6 +12,11 @@
     private string currentEditingDescription = "";
     private string editedDescription = "";
 
+    protected async override Task OnInitializedAsync() 
+    {
+        submissions = await suggestionData.GetAllSuggestionsWaitingForApproval();
+    }
+
 
 
 }
