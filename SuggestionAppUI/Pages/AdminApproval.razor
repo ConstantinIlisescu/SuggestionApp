@@ -24,4 +24,11 @@
         await suggestionData.UpdateSuggestion(submission);
     }
 
+    private async Task RejectSubmission(SuggestionModel submission)
+    {
+        submission.Rejected = true;
+        submissions.Remove(submission);
+        await suggestionData.UpdateSuggestion(submission);
+    }
+
 }
