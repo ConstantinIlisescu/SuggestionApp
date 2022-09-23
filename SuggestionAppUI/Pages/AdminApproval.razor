@@ -99,6 +99,13 @@
         currentEditingDescription = model.Id;
     }
 
+    private async Task SaveDescription(SuggestionModel model)
+    {
+        currentEditingDescription = string.Empty;
+        model.Description = editedDescription;
+        await suggestionData.UpdateSuggestion(model);
+    }
+
     private void ClosePage()
     {
         navManager.NavigateTo("/");
