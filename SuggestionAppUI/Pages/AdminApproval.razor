@@ -91,6 +91,14 @@
         await suggestionData.UpdateSuggestion(model);
     }
 
+    private void EditDescription(SuggestionModel model)
+    {
+        editingModel = model;
+        editedDescription = model.Description;
+        currentEditingTitle = "";
+        currentEditingDescription = model.Id;
+    }
+
     private void ClosePage()
     {
         navManager.NavigateTo("/");
