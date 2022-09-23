@@ -43,6 +43,31 @@
                         <span class="oi oi-pencil" @onclick="(() => EditTitle(s))"></span>
                     }
                 </div>
+                <div>
+                    @s.Category.CategoryName
+                </div>
+                <div>
+                    @s.Author.DisplayName
+                </div>
+                <div>
+                    @if (currentEditingDescription == s.Id)
+                    {
+                        <EditForm Model="@editedDescription" OnSubmit="(() => SaveDescription(s))">
+                            <InputText @bind-Value="editedDescription"></InputText>
+                             <button type="submit">
+                                <span class="oi oi-check"></span>
+                            </button>
+                            <button @onclick="(() => currentEditingDescription = string.Empty)">
+                                <span class="oi oi-x"></span>
+                            </button>
+                        </EditForm>
+                    }
+                    else
+                    {
+                        @s.Description
+                        <span class="oi oi-pencil" @onclick="(() => EditDescription(s))"></span>
+                    }
+                </div>
             </div>
         </div>   
     }
