@@ -3,6 +3,51 @@
 @inject IUserData userData
 @inject NavigationManager navManager
 
+<h1>Pending Submissions</h1>
+
+<div>
+    <div>
+        @submissions?.Count Submissions
+    </div>
+    <div>
+        <button @onclick="ClosePage"></button>
+    </div>
+</div>
+
+@if (submissions is not null)
+{
+    foreach (var s in submissions)
+    {
+        <div>
+            <div>
+                <button @onclick="(() => ApproveSubmission(s))">Approve</button>
+                <button @onclick="(() => RejectSubmission(s))">Reject</button>
+            </div>
+            <div>
+                <div>
+                    @if (currentEditingTitle == s.Id)
+                    {
+                        <EditForm Model="@editedTitle" OnSubmit="(() => SaveTitle(s))">
+                            <InputText @bind-Value="editedTitle"></InputText>
+                            <button type="submit">
+                                <span class="oi oi-check"></span>
+                            </button>
+                            <button @onclick="(() => currentEditingTitle = string.Empty)">
+                                <span class="oi oi-x"></span>
+                            </button>
+                        </EditForm>
+                    }
+                    else
+                    {
+                        @s.Suggestion
+                        <span class="oi oi-pencil" @onclick="(() => EditTitle(s))"></span>
+                    }
+                </div>
+            </div>
+        </div>   
+    }
+}
+
 @code {
 
     private  List<SuggestionModel> submissions;
@@ -44,6 +89,11 @@
         currentEditingTitle = string.Empty;
         model.Suggestion = editedTitle;
         await suggestionData.UpdateSuggestion(model);
+    }
+
+    private void ClosePage()
+    {
+        navManager.NavigateTo("/");
     }
 
 }
