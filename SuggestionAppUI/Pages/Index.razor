@@ -36,7 +36,7 @@
                 
                 <div>
                     @*the left part of the suggestion card*@
-                    <div>
+                    <div @onclick="(() => VoteUp(s))">
                         <div>@GetUpvoteTopText(s)</div>
                         <span class="oi oi-caret-top"></span>
                         <div>@GetUpvoteBottomText(s)</div>
