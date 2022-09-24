@@ -274,7 +274,14 @@
         }
         else
         {
-            return "Click to";
+            if(suggestion.Author.Id == loggedInUser?.Id)
+            {
+                return "Awaiting";
+            }
+            else
+            {
+                return "Click to";
+            }
         }
     }
 
