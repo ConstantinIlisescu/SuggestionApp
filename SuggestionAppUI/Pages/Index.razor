@@ -74,7 +74,7 @@
                 <div class="@GetSelectedCategory()" @onclick="(() => OnCategoryClick())">All</div>
                 @foreach (var c in categories)
                 {
-                    <div class="@GetSelectedCategory(c.CategoryName))" @onclick="(() => OnCategoryClick(c.CategoryName))">@c.CategoryName</div>
+                    <div class="@GetSelectedCategory(c.CategoryName)" @onclick="(() => OnCategoryClick(c.CategoryName))">@c.CategoryName</div>
                 }
             </div>
         }
