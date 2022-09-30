@@ -8,7 +8,6 @@
 @inject NavigationManager navManager
 @inject ProtectedSessionStorage sessionStorage
 
-
 <h1 class="page-heading text-uppercase mb-4">Training Suggestions</h1>
 
 <div class="suggestion-container">
@@ -22,9 +21,9 @@
         <button class="btn btn-order @SortedByNewClass(false)" @onclick="(() => OrderByNew(false))">Popular</button>
     </div>
     <div class="col-md-4 col-xl-3 search-box">
-        <input type="text" placeholder="Search" 
-            aria-label="Search box" class="form-control rounded-control"
-            @oninput="((txt) => OnSearchInput((string)txt.Value))"/>
+        <input type="text" placeholder="Search"
+               aria-label="Search box" class="form-control rounded-control"
+               @oninput="((txt) => OnSearchInput((string)txt.Value))" />
     </div>
 </div>
 
@@ -33,7 +32,7 @@
         @if (suggestions is not null)
         {
             <Virtualize Items="@suggestions" Context="s" OverscanCount="10">
-                
+
                 <div class="suggestion-entry">
                     @*the left part of the suggestion card*@
                     <div class="@GetVoteClass(s)" @onclick="(() => VoteUp(s))">
@@ -96,7 +95,7 @@
 
 
 
-@code{
+@code {
     private UserModel loggedInUser;
     private List<SuggestionModel> suggestions;
     private List<CategoryModel> categories;
@@ -120,7 +119,7 @@
     {
         if (loggedInUser is not null)
         {
-            navManager.NavigateTo("/Create");   
+            navManager.NavigateTo("/Create");
         }
         else
         {
@@ -133,7 +132,7 @@
         var authState = await authProvider.GetAuthenticationStateAsync();
         string objectId = authState.User.Claims.FirstOrDefault(c => c.Type.Contains("objectidentifier"))?.Value;
 
-        if(string.IsNullOrWhiteSpace(objectId) == false)
+        if (string.IsNullOrWhiteSpace(objectId) == false)
         {
             loggedInUser = await userData.GetUserFromAuthentication(objectId) ?? new();
 
@@ -144,7 +143,7 @@
 
             bool isDirty = false;
 
-            if(objectId.Equals(loggedInUser.ObjectIdentifier) == false)
+            if (objectId.Equals(loggedInUser.ObjectIdentifier) == false)
             {
                 isDirty = true;
                 loggedInUser.ObjectIdentifier = objectId;
@@ -169,9 +168,9 @@
                 isDirty = true;
                 loggedInUser.EmailAddress = email;
             }
-            if(isDirty)
+            if (isDirty)
             {
-                if(string.IsNullOrWhiteSpace(loggedInUser.Id))
+                if (string.IsNullOrWhiteSpace(loggedInUser.Id))
                 {
                     await userData.CreateUser(loggedInUser);
                 }
@@ -187,7 +186,7 @@
 
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
-        if(firstRender)
+        if (firstRender)
         {
             await LoadFilterState();
             await FilterSuggestions();
@@ -243,7 +242,8 @@
         if (isSortedByNew)
         {
             output = output.OrderByDescending(s => s.DateCreated).ToList();
-        }else
+        }
+        else
         {
             output = output.OrderByDescending(s => s.UserVotes.Count)
                                     .ThenByDescending(s => s.DateCreated).ToList();
@@ -280,9 +280,9 @@
 
     private async Task VoteUp(SuggestionModel suggestion)
     {
-        if(loggedInUser is not null)
+        if (loggedInUser is not null)
         {
-            if(suggestion.Author.Id == loggedInUser.Id)
+            if (suggestion.Author.Id == loggedInUser.Id)
             {
                 //Can't vote on your own suggestion
                 return;
@@ -296,7 +296,7 @@
 
             if (isSortedByNew == false)
             {
-                suggestions = suggestions.OrderByDescending(s => s.UserVotes.Count).ThenByDescending(s => s.DateCreated).ToList();   
+                suggestions = suggestions.OrderByDescending(s => s.UserVotes.Count).ThenByDescending(s => s.DateCreated).ToList();
             }
         }
         else
@@ -313,7 +313,7 @@
         }
         else
         {
-            if(suggestion.Author.Id == loggedInUser?.Id)
+            if (suggestion.Author.Id == loggedInUser?.Id)
             {
                 return "Awaiting";
             }
@@ -326,10 +326,11 @@
 
     private string GetUpvoteBottomText(SuggestionModel suggestion)
     {
-        if (suggestion.UserVotes?.Count >1)
+        if (suggestion.UserVotes?.Count > 1)
         {
             return "Upvotes";
-        }else
+        }
+        else
         {
             return "Upvote";
         }
@@ -342,7 +343,7 @@
 
     private string SortedByNewClass(bool isNew)
     {
-        if (isNew ==isSortedByNew)
+        if (isNew == isSortedByNew)
         {
             return "sort-selected";
         }
@@ -356,7 +357,7 @@
     {
         if (suggestion.UserVotes is null || suggestion.UserVotes.Count == 0)
         {
-            return "suggestion-entry-no-votes";   
+            return "suggestion-entry-no-votes";
         }
         else if (suggestion.UserVotes.Contains(loggedInUser?.Id))
         {
