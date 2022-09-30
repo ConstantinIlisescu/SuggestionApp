@@ -7,35 +7,35 @@ html, body {
     font-size: 18px;
 }
 
-h1, h2, h3, h4 , h5 , h6 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    font-weight:900;
+    font-weight: 900;
     color: #FFFFFF;
 }
 
 body {
-    background:url(../images/main1.jpg) no-repeat center center fixed;
-    background-size:cover;
+    background: url(../images/main1.jpg) no-repeat center center fixed;
+    background-size: cover;
     height: 100%;
 }
 
 h1 {
-    padding-top:1rem;
+    padding-top: 1rem;
 }
 
-h1:focus {
-    outline: none;
-}
+    h1:focus {
+        outline: none;
+    }
 
 a, .btn-link {
     color: #FFFFFF;
     text-decoration: none;
 }
 
-a:hover, .btn-link:hover {
-    color: #FFFFFF;
-    text-decoration:underline;
-}
+    a:hover, .btn-link:hover {
+        color: #FFFFFF;
+        text-decoration: underline;
+    }
 
 .btn-primary {
     color: #fff;
@@ -48,7 +48,7 @@ a:hover, .btn-link:hover {
 }
 
 .valid.modified:not([type=checkbox]) {
-   /* outline: 1px solid #26b050;*/
+    /* outline: 1px solid #26b050;*/
 }
 
 .invalid {
@@ -89,7 +89,7 @@ a:hover, .btn-link:hover {
     }
 
 .page-heading {
-    text-align:center;
+    text-align: center;
 }
 
 .suggestion-container {
@@ -100,17 +100,17 @@ a:hover, .btn-link:hover {
 
 .suggest-btn {
     font-family: 'Montserrat', sans-serif;
-    border-width:3px;
-    border-radius:10px;
+    border-width: 3px;
+    border-radius: 10px;
     padding-left: 2rem;
-    padding-right:2rem;
-    font-weight:900;
+    padding-right: 2rem;
+    font-weight: 900;
 }
 
 .btn-outline-light:hover {
-    color:#39BAD8;
+    color: #39BAD8;
     background-color: #FFFFFF;
-    border-color:#FFFFFF;
+    border-color: #FFFFFF;
 }
 
 .suggestions-count {
@@ -120,9 +120,9 @@ a:hover, .btn-link:hover {
 }
 
 .btn-order {
-    background-color:#FFFFFF;
+    background-color: #FFFFFF;
     border: 0px solid #DDDDDD;
-    border-radius:10px;
+    border-radius: 10px;
 }
 
 .btn:focus,
@@ -135,8 +135,9 @@ a:hover, .btn-link:hover {
     color: #000000;
     font-weight: 700;
 }
+
     .sort-selected:hover {
-        color:#000000;
+        color: #000000;
     }
 
 .search-box {
@@ -144,7 +145,7 @@ a:hover, .btn-link:hover {
 }
 
 .rounded-control {
-    border-radius:10px;
+    border-radius: 10px;
 }
 
 .categories {
@@ -154,13 +155,13 @@ a:hover, .btn-link:hover {
     padding: 1rem;
 }
 
-.categories div {
-    margin-top: 1rem;
-}
-
-    .categories div:hover {
-        cursor: pointer;
+    .categories div {
+        margin-top: 1rem;
     }
+
+        .categories div:hover {
+            cursor: pointer;
+        }
 
 .selected-category {
     font-weight: 700;
@@ -215,7 +216,7 @@ a:hover, .btn-link:hover {
 .suggestion-entry-no-votes {
     background-color: #DDDDDD;
     color: #FFFFFF;
-    border-color:#DDDDDD;
+    border-color: #DDDDDD;
 }
 
 .suggestion-entry-voted {
@@ -249,7 +250,7 @@ a:hover, .btn-link:hover {
     font-size: 0.8rem;
     flex: 1;
     display: flex;
-    align-items:flex-end;
+    align-items: flex-end;
 }
 
 .suggestion-entry-status {
@@ -296,8 +297,8 @@ a:hover, .btn-link:hover {
     text-align: center;
     line-height: 1.75;
     font-weight: bold;
-    font-size:0.8rem;
-    letter-spacing:1.2px;
+    font-size: 0.8rem;
+    letter-spacing: 1.2px;
 }
 
 .nav-links {
@@ -381,12 +382,12 @@ a:hover, .btn-link:hover {
     letter-spacing: 1px;
 }
 
-.btn-main:hover {
-    color: #39BAD8;
-    border-color: #39BAD8;
-    background-color: #FFFFFF;
-    border-width:3px;
-}
+    .btn-main:hover {
+        color: #39BAD8;
+        border-color: #39BAD8;
+        background-color: #FFFFFF;
+        border-width: 3px;
+    }
 
 .suggestion-detail-row {
     --bs-gutter-x: 0;
@@ -407,7 +408,7 @@ a:hover, .btn-link:hover {
     height: 100px;
     flex-direction: column;
     justify-content: center;
-    font-size:0.8rem;
+    font-size: 0.8rem;
 }
 
 .suggestion-detail-no-votes {
@@ -558,7 +559,7 @@ a:hover, .btn-link:hover {
     color: #B5D43A;
 }
 
-    .submission-edit-approve:hover{
+    .submission-edit-approve:hover {
         font-weight: 700;
     }
 
@@ -574,6 +575,7 @@ a:hover, .btn-link:hover {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
     .submission-edit-icon:hover {
         color: #39BAD8;
     }
@@ -592,6 +594,4 @@ a:hover, .btn-link:hover {
     color: #A9A9A9;
     height: 2px;
     opacity: 1;
-
 }
-
